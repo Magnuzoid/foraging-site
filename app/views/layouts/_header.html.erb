@@ -2,17 +2,18 @@
   <div class="inner">
     <!-- Byhoest logo -->
     <div id="logo" class="fleft">
-      <a href="#" title="Byhøst.dk">Byhøst</a></div>
+      <%= link_to "Byhøst", root_path, title: "Byhøst.dk" %>
+    </div>
     <!-- /Byhoest logo -->
     <div class="fright">
 
       <!-- Page Navigation -->
       <nav id="pagenav" class="fleft">
         <li><a href="#">Opskrifter</a></li>
-        <li><a href="#">Almanak</a></li>
+        <li><%= link_to "Almanak", almanak_path %></li>
         <li><a href="#">Kort</a></li>
         <li><a href="#">Byhøstguide</a></li>
-        <li><a href="#">Events</a></li>
+        <li><%= link_to "Events", events_path %></li>
         <li><a href="#">Forum</a></li>
         <li><a href="#">Om Byhøst</a></li>
       </nav>
@@ -44,4 +45,3 @@
     </div>
   </div>
 </header>
-<div id="pagewrap">  

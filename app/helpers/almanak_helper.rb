@@ -1,0 +1,2 @@
+module AlmanakHelper
+end
