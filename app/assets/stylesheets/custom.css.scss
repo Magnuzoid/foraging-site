@@ -25,6 +25,10 @@
   width: 100%;
 }
 
+.padding-sides {
+  padding: 0 2em;
+}
+
 //BG colors
 .bg-sand {
   background-color: $sand1;
@@ -51,16 +55,24 @@
   label {
     font-weight: bold;
     text-align: left;
+    color: darken($sand1, 75%);
   }
 
   input {
     box-sizing: border-box;
+    border: 1px solid darken($sand2, 10%);
+    background-color: $sand2;
+    &:focus {
+      background-color: white;
+      outline-color: $gron1;
+    }
   }
 }
 
 input[type=submit] {
   border: none;
 }
+
 
 
 #sign_up {
@@ -70,10 +82,10 @@ input[type=submit] {
   margin-bottom: 2em;
 
   .actions {
-    justify-content: space-between;
   }
 }
 
 .actions {
   margin-top: 5px;
+  justify-content: space-between;
 }

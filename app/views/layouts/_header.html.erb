@@ -28,21 +28,12 @@
 
       <!-- Login Box -->
       <div id="login" class="fleft">
-
-        <%= link_to "Log ind", new_user_registration_path %>
-        
+        <%= link_to "Log ind", user_session_path %>
       </div>
       <!-- /Login Box -->
-
-      <!-- User Nav -->
-      <nav id="usernav">
-        <li>Hey!&nbsp;</li>
-        <li><a class="username" title="velkommen tilbage Sanker Mike !" >Sanker-Mike</a></li>
-        <li>&nbsp;|&nbsp;</li>
-        <li><a href="#">Min konto</a></li>
-        <li><a href="#">Log ud</a></li>
-      </nav>
-      <!-- /User Nav -->
+      <% if current_user %>
+        <%= render 'layouts/usernav' %>
+      <% end %>
 
     </div>
   </div>
