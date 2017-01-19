@@ -1,0 +1,79 @@
+@import "variables";
+
+
+.center {
+  margin: 0 auto;
+}
+
+.inner {
+  width: $maxsitewidth;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.full {
+  width: 100%;
+}
+
+//BG colors
+.bg-sand {
+  background-color: $sand1;
+}
+
+.btn {
+  padding: 8px 7px;
+  background-color: $gron1;
+  color: $sand2;
+  text-transform: uppercase;
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 10px;
+  em {
+    font-size: .7em;
+  }
+
+  label {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  input {
+    box-sizing: border-box;
+  }
+}
+
+input[type=submit] {
+  border: none;
+}
+
+
+#sign_up {
+  max-width: 600px;
+  text-align: center;
+  padding: 1em 0;
+  margin-bottom: 2em;
+
+  .actions {
+    justify-content: space-between;
+  }
+}
+
+.actions {
+  margin-top: 5px;
+}

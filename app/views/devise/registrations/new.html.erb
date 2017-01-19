@@ -1,0 +1,32 @@
+<div class="bg-sand">
+  <div id="sign_up" class="center flex column">
+
+    <h2>Tilmeld dig</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field ta-left">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "full" %>
+      </div>
+
+      <div class="field ta-left">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "full" %>
+        <% if @minimum_password_length %>
+        <em>(Koden skal minimum være <%= @minimum_password_length %> karakterer lang)</em>
+        <% end %>
+      </div>
+
+      <div class="field ta-left">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "full" %>
+      </div>
+
+      <div class="actions flex row full">
+        <%= render "devise/shared/links" %>
+        <%= f.submit "Registrer", class: "btn" %>
+      </div>
+    <% end %>
+  </div><!-- inner group three-col -->
+</div>

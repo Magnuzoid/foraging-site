@@ -1,46 +1,6 @@
+@import "variables";
 @import 'reset.css';
 
-/* dimensioner */
-$maxsitewidth: 1200px;
-$headerheight: 90px;
-$toppad: 10px;
-
-/* farver */
-$gron1: #265728;
-
-$gray1: #848484;
-
-$sand1: #f1ebdf;
-$sand2: #f8f5ee;
-$sand3: #feffff;
-
-$redlink: #ff6260;
-$transred: rgba(232,90,88,0.9);
-
-/* font-sizes */
-$p10: (10/14) * 1em;
-$p13: (13/14) * 1em;
-$p15: (15/14) * 1em;
-$p16: (16/14) * 1em;
-$p17: (17/14) * 1em;
-$p18: (18/14) * 1em;
-$p20: (20/14) * 1em;
-$p22: (22/14) * 1em;
-$p23: (23/14) * 1em;
-$p24: (24/14) * 1em;
-$p28: (28/14) * 1em;
-$p30: (30/14) * 1em;
-$p34: (34/14) * 1em;
-$p37: (37/14) * 1em;
-$p40: (40/14) * 1em;
-$p77: (77/14) * 1em;
-
-$lheight1: 1em;
-$lheight2: 1.35em;
-
-
-/* paddings */
-$pad-left: 10px;
 
 /* body */
 
@@ -122,6 +82,8 @@ footer{
     padding-top: 14px;
   }
 }
+
+
 
 /* float: left & right */
 
@@ -332,7 +294,7 @@ header{
 #pagewrap.opskrift{
 
   #content, #slide{
-    max-width: 1200px;
+    max-width: $maxsitewidth;
     margin-left: auto;
     margin-right: auto;
   }
@@ -428,7 +390,7 @@ header{
     #splash{
     height: 375px;
     background-color: $gray1;
-    max-width: 1200px;
+    max-width: $maxsitewidth;
     margin: 0 auto;
     position: relative;
     border-bottom: 1px solid $gron1;
@@ -558,7 +520,7 @@ header{
 
 
   #content{
-    max-width: 1200px;
+    max-width: $maxsitewidth;
     position: relative;
     color: $gron1;
     padding-bottom: 50px;
@@ -769,17 +731,18 @@ header{
 }
 
 .inner ul li {
-    list-style: none inside none;
-    overflow: hidden;
+  list-style: none inside none;
+  overflow: hidden;
 
-    &:last-child{
-      font-weight: bold;
-      padding-bottom: 17px;
+  &:last-child{
+    font-weight: bold;
+    padding-bottom: 17px;
+  }
+  img{
+    width: 100%;
     }
-    img{
-      width: 100%;
-      }
 }
+
 #pagewrap.event.post h3{
   padding-left: 102px;
   padding-right: 23px;
@@ -832,11 +795,9 @@ h4.title{font-size: $p22;}
 
   .inner{
     padding-top: 62px;
-    max-width: 1200px;
+    max-width: $maxsitewidth;
     padding-bottom: 0;
     height: 438px;
-
-    .group{}
   }
 
   ul{
