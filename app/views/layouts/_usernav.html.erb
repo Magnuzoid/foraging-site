@@ -1,10 +1,13 @@
 <!-- User Nav -->
 <nav id="usernav">
   <li>Hey!&nbsp;</li>
-  <li><a class="username" title="velkommen tilbage Sanker Mike !" >Sanker-Mike</a></li>
+  <li>
+    <% if user_signed_in? %>
+      <%= current_user.username %>
+    <% end %>
+  </li>
   <li>&nbsp;|&nbsp;</li>
-  <li><a href="#">Min konto</a></li>
-  <li><a href="#">Log ud</a></li>
+  <li><%= link_to "Min konto", edit_user_registration_path, title: 'Gå til din konto'%></li>
   <li><%= link_to('Log ud', destroy_user_session_path, title: 'Logout', :method => :delete) %></li>
 </nav>
 <!-- /User Nav -->

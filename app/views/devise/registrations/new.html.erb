@@ -6,8 +6,13 @@
       <%= devise_error_messages! %>
 
       <div class="field ta-left">
+        <%= f.label :username, "Brugernavn" %><br />
+        <%= f.text_field :username, autofocus: true, class: "full" %>
+      </div>
+
+      <div class="field ta-left">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "full" %>
+        <%= f.email_field :email, class: "full" %>
       </div>
 
       <div class="field ta-left">
