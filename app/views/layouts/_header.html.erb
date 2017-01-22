@@ -25,11 +25,13 @@
         <input type="search" placeholder="søg..."  />
       </div>
       <!-- /Search Box -->
-
+      <% unless user_signed_in? %>
+        <div id="login" class="fleft">
+          <%= link_to "Log ind", user_session_path %>
+        </div>
+      <% end %>
       <!-- Login Box -->
-      <div id="login" class="fleft">
-        <%= link_to "Log ind", user_session_path %>
-      </div>
+
       <!-- /Login Box -->
       <% if current_user %>
         <%= render 'layouts/usernav' %>

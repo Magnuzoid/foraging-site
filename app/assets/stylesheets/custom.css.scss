@@ -45,6 +45,14 @@
   text-align: left;
 }
 
+.ta-right {
+  text-align: right;
+}
+
+.ta-center {
+  text-align: center;
+}
+
 .field {
   width: 100%;
   margin-bottom: 10px;
@@ -73,16 +81,18 @@ input[type=submit] {
   border: none;
 }
 
+.link {
+  background-color: transparent !important;
+  color: $gron1;
+}
 
+.no-padding { padding: 0 !important }
 
 #sign_up {
   max-width: 600px;
   text-align: center;
   padding: 1em 0;
   margin-bottom: 2em;
-
-  .actions {
-  }
 }
 
 .actions {
