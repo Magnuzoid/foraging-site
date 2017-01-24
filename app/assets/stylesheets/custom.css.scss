@@ -53,6 +53,16 @@
   text-align: center;
 }
 
+.actions {
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.link {
+  background-color: transparent !important;
+  color: $gron1;
+}
+
 .field {
   width: 100%;
   margin-bottom: 10px;
@@ -81,21 +91,23 @@ input[type=submit] {
   border: none;
 }
 
-.link {
-  background-color: transparent !important;
-  color: $gron1;
-}
 
 .no-padding { padding: 0 !important }
+
+#pagewrap {
+  &.map {
+    padding-top: 0; /*142px*/
+  }
+}
+
+#map {
+  height: 800px;
+  z-index: 1;
+}
 
 #sign_up {
   max-width: 600px;
   text-align: center;
   padding: 1em 0;
   margin-bottom: 2em;
-}
-
-.actions {
-  margin-top: 5px;
-  justify-content: space-between;
 }

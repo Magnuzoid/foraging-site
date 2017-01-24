@@ -1,0 +1,13 @@
+<!-- Search Box -->
+<div id="searchbox" class="fleft" >
+  <%= form_tag(places_path, method: :get, :id => "lookup-form", remote: true) do %>
+    <%= text_field_tag(:search, params[:search], placeholder: "søg...", type: "search") %>
+    <%= submit_tag("Search", :name => nil, type: "button") %>
+  <% end %>
+  <script type="text/javascript">
+    $(function(){
+      autoSearch();
+    });
+  </script>
+</div>
+<!-- /Search Box -->

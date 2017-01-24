@@ -1,0 +1,43 @@
+$(function(){
+  if (results == undefined) {
+    results = L.layerGroup();
+    console.log("results is now defined");
+  } else {
+    console.log(results);
+    console.log(map.hasLayer(results));
+    map.removeLayer(results);
+    console.log(map.hasLayer(results));
+  }
+  results.clearLayers();
+  <% if @places.empty? %>
+    results.clearLayers();
+    console.log("clear the area");
+  <% else %>
+    <% @places.each_with_index do | place, index | %>
+      //console.log(mLat);
+      //console.log(mLng);
+      //console.log('<%= index %>');
+      //console.log('<%= place.title %>');
+      //console.log('<%= place.description %>');
+      //console.log('<%= place.user.username %>');
+      mLat = <%= place.lat %>;
+      mLng = <%= place.lng %>;
+      markertitle = '<strong><%= place.title %></strong>';
+      markerdescription = '<%= place.description %>';
+      markeruser = '<%= place.user.username %>';
+
+      marker = L.marker(
+        [mLat, mLng],
+        {icon: myIcon}
+      );
+
+      marker.bindPopup(markertitle+"<br />"+markerdescription+"<br />"+markeruser);
+
+      marker.addTo(results);
+    <% end %>
+  <% end %>
+
+
+  results.addTo(map);
+
+});

@@ -1,0 +1,16 @@
+<script>
+  var marker, markertitle, markerdescription, markeruser;
+  $(function(){
+    <% object.each do |place| %>
+      marker = L.marker(
+                      [<%= place.lat %>, <%= place.lng %>],
+                      {icon: myIcon}
+                    ).addTo(map);
+      markertitle = '<%= place.title %>';
+      markerdescription = '<%= place.description %>';
+      markeruser = '<%= place.user.username %>';
+      marker.bindPopup(markertitle+"<br />"+markerdescription+"<br />"+markeruser);
+    <% end %>
+  });
+
+</script>

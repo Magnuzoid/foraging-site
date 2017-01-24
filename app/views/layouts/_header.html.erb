@@ -11,6 +11,7 @@
       <nav id="pagenav" class="fleft">
         <li><a href="#">Opskrifter</a></li>
         <li><%= link_to "Almanak", almanak_path %></li>
+        <li><%= link_to "Kort", "/kort" %></li>
         <li><a href="#">Kort</a></li>
         <li><a href="#">Byhøstguide</a></li>
         <li><%= link_to "Events", events_path %></li>
@@ -19,12 +20,7 @@
       </nav>
       <!-- /Page Navigation -->
 
-      <!-- Search Box -->
-      <div id="searchbox" class="fleft" >
-        <input type="button" value="Søg">
-        <input type="search" placeholder="søg..."  />
-      </div>
-      <!-- /Search Box -->
+      <%= render 'layouts/search' %>
       <% unless user_signed_in? %>
         <div id="login" class="fleft">
           <%= link_to "Log ind", user_session_path %>
