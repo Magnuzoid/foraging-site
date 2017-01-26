@@ -1,0 +1,11 @@
+<%= form_for @place, method: "create", id: "new_place", remote: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br />
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+  <%= f.label :Lat %>
+  <%= f.text_field :lat %><br />
+  <%= f.label :long %>
+  <%= f.text_field :lng %>
+  <%= f.submit nil %>
+<% end %>

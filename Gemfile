@@ -16,7 +16,8 @@ gem 'rake', '~>12.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'leaflet-rails'
-
+# validation for lat/lon
+gem 'missing_validators', '~> 2.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

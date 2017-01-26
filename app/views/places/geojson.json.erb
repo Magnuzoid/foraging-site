@@ -1,0 +1,17 @@
+[<% @places.each_with_index do |place, index| %>
+{
+    "type": "Feature",
+    "properties": {
+        "name": "<%= place.title %>",
+        "popupContent": "<strong><%= place.title %></strong><br /><%= place.description %>"
+    },
+    "geometry": {
+        "type": "Point",
+        "style": "myStyle",
+        "coordinates": [<%= place.lng %>, <%= place.lat %>]
+    }
+}
+  <% if index < @places.count - 1 %>
+,
+  <% end %>
+<% end %>]
