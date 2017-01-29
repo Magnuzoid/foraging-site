@@ -67,6 +67,11 @@ function getMarkers() {
     });
 }
 
+function setCoords(lat, lng){
+  $("input#place_lat").val(lat);
+  $("input#place_lng").val(lng);
+}
+
 function addLocationMarker(){
 
   var locationIcon = L.icon({
@@ -86,11 +91,12 @@ function addLocationMarker(){
     draggable: true,
     icon: locationIcon
   }).addTo(map);
+  setCoords(locationMarker.getLatLng().lat, locationMarker.getLatLng().lng);
+
 
   locationMarker.on("dragend", function(){
     var coords = this.getLatLng();
-    $("input#place_lat").val(coords.lat);
-    $("input#place_lng").val(coords.lng);
+    setCoords(coords.lat, coords.lng);
   });
 
 }

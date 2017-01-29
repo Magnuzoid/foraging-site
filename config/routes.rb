@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :places
+  resources :categories
 
   get 'events/index'
 
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
   get '/almanak', to: 'almanak#index'
 
   get '/events', to: 'events#index'
+
+
 end
