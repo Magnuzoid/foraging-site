@@ -1,4 +1,4 @@
-var markers, locationMarker;
+var markers, locationMarker, popup, placeMarker, markerIcon;
 var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -18,10 +18,18 @@ var geojsonMarkerOptions1 = {
 
 
 
+
 var path = window.location.pathname;
 
 $(function(){
+
   if ( $("#pagewrap").hasClass("places") )  {
+    // Remember to include either the Leaflet 0.7.3 or the Leaflet 1.0.0-beta1 library
+    markerIcon = L.icon({
+      iconUrl: "<%= asset_path 'marker-icon.png' %>",
+      iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>",
+      shadowUrl: "<%= asset_path 'marker-shadow.png' %>"
+    });
     getMarkers();
     initMap();
     map.locate({
@@ -31,32 +39,32 @@ $(function(){
 });
 
 function onEachFeature(feature, layer) {
+
+  popupOptions = {offset: [13, 12]};
   // does this feature have a property named popupContent?
+  //console.log(feature.geometry.style = myStyle1);
   if (feature.properties && feature.properties.popupContent) {
-      layer.bindPopup(feature.properties.popupContent);
+    popup = L.popup({ autopan: false })
+        .setContent(feature.properties.popupContent);
+    layer.bindPopup(popup, popupOptions);
   }
 }
 
 function getMarkers() {
   var test = true;
+
   markers = $.getJSON( path ).done( function (response) {
 
       geojsonLayer = L.geoJson(response, {
-        onEachFeature: onEachFeature,
         pointToLayer: function (feature, latlng) {
+                        placeMarker = L.marker(latlng, {icon: markerIcon});
 
-                        if(test == true){
-                          test = false;
-                          return L.circleMarker(latlng, geojsonMarkerOptions1);
-                        }else if (test == false){
-                          test = true;
-                          return L.circleMarker(latlng, geojsonMarkerOptions);
-                        }
-                      }
+                        return placeMarker;
+                      },
+        onEachFeature: onEachFeature
       }).addTo(map);
       map.fitBounds(geojsonLayer.getBounds());
     });
-
 }
 
 function addLocationMarker(){
@@ -90,10 +98,7 @@ function addLocationMarker(){
 function initMap() {
   map.options.maxZoom = 10;
   map.options.minZoom = 4;
-  /*map.options = {
-    'maxZoom': 13,
-    'minZoom': 6
-  };*/
+  map.options.zoomAnimation = false;
 }
 
 function closeDialouge() {
@@ -109,8 +114,8 @@ function autoSearch() {
   searchField.on("keyup paste", function(e){
     //e.preventDefault();
 
-    //if (searchField.val().length >= 2){
-    searchForm.submit();
-    //}
+    if (searchField.val().length >= 2){
+      searchForm.submit();
+    }
   });
 }

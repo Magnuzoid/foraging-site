@@ -9,10 +9,10 @@
       <%= f.text_area :description %>
     </div>
     <div class="row">
-      <%= f.text_field :lat, hidden: true %><br />
-      <%= f.text_field :lng, hidden: true %>
+      <%= f.text_field :lat, hidden: false %><br />
+      <%= f.text_field :lng, hidden: false %>
     </div>
-    <%= f.submit nil %>
+    <%= f.submit "Tilføj Sted" %>
     <a onClick="closeDialouge()" class="close">x</a>
   <% end %>
 </div>

@@ -10,8 +10,5 @@
         "style": "myStyle",
         "coordinates": [<%= place.lng %>, <%= place.lat %>]
     }
-}
-  <% if index < @places.count - 1 %>
-,
-  <% end %>
+}<%= index < @places.count - 1 ? "," : "" %>
 <% end %>]
