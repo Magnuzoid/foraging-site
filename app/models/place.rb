@@ -5,6 +5,8 @@ class Place < ApplicationRecord
   belongs_to :user
   has_one :category
 
+  accepts_nested_attributes_for :category
+
   def self.search(query)
       # where(:title, query) -> This would return an exact match of the query
       if query.blank?

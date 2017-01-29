@@ -12,6 +12,9 @@
       <%= f.text_field :lat, hidden: false %><br />
       <%= f.text_field :lng, hidden: false %>
     </div>
+    <div class="row">
+      <%= collection_select(:category , :category_id, Category.all , :id, :name, {:prompt => 'Select Category...'}) %>
+    </div>
     <%= f.submit "Tilføj Sted" %>
     <a onClick="closeDialouge()" class="close">x</a>
   <% end %>
