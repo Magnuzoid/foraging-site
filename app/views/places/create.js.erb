@@ -1,2 +1,13 @@
-$("#new_place").remove();
-$("#newplace").show();
+$(function(){
+  <% if @place.errors.any? %>
+    $("form input").removeClass("error");
+    $("form .message").html("");
+    <% @place.errors.each_with_index do |e, idex| %>
+      console.log("<%= e[0] %>");
+      $("input#place_<%= e[0] %>").addClass('error').after('<div class="message"><%= e[1] %></div>');
+      console.log("<%= e[1].html_safe %>");
+    <% end %>
+<% else %>
+  closeDialouge();
+<% end %>
+});

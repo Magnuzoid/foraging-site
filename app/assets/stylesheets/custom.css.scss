@@ -63,6 +63,13 @@
   color: $gron1;
 }
 
+input {
+
+  &.error {
+    border: 2px solid red;
+  }
+}
+
 .field {
   width: 100%;
   margin-bottom: 10px;
@@ -87,6 +94,10 @@
   }
 }
 
+.overlay {
+  padding: 10px;
+}
+
 input[type=submit] {
   border: none;
 }
@@ -95,13 +106,13 @@ input[type=submit] {
 .no-padding { padding: 0 !important }
 
 #pagewrap {
-  &.map {
-    padding-top: 0; /*142px*/
+  &.places {
+    padding-top: 100px; /*142px*/
   }
 }
 
 #map {
-  height: 800px;
+  height: calc(100vh - 100px);
   z-index: 1;
 }
 
@@ -110,4 +121,16 @@ input[type=submit] {
   text-align: center;
   padding: 1em 0;
   margin-bottom: 2em;
+}
+
+#user-actions {
+  position: fixed;
+  right: 0;
+  background-color: $sand1;
+  top: 200px;
+  z-index: 100;
+
+  a {
+    padding: 10px 5px;
+  }
 }

@@ -7,11 +7,14 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.user = current_user
-    if @place.save
-      format.html { redirect_to places_url }
-    else
-      format.html { redirect_to places_url }
-      format.js
+
+    respond_to do |format|
+      if @place.save
+        format.html { redirect_to places_url, notice: 'Sted er tilføjet!' }
+        format.js
+      else
+        format.js
+      end
     end
   end
 
@@ -19,7 +22,7 @@ class PlacesController < ApplicationController
     @place = Place.new
 
     if params[:search]
-      @places = Place.search(params[:search])
+      @places = Place.search( params[:search] )
     else
       @places = Place.all
     end

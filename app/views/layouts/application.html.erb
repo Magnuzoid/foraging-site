@@ -10,9 +10,13 @@
 
   <body class="">
     <%= render 'layouts/header' %>
-    <div id="pagewrap">
+    <div id="pagewrap" class="<%= controller_name %>">
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <% if controller_name == "places" %>
+      <% else %>
+        <%= render 'layouts/footer' %>
+      <% end %>
+
     </div> <!-- /pagewrap -->
   </body>
 </html>
