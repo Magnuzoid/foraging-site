@@ -3,9 +3,9 @@ class Place < ApplicationRecord
   validates :lat, latitude: true, presence: true
   validates :lng, longitude: true, presence: true
   belongs_to :user
-  has_one :category
+  belongs_to :category, optional: true
 
-  accepts_nested_attributes_for :category
+  #accepts_nested_attributes_for :category
 
   def self.search(query)
       # where(:title, query) -> This would return an exact match of the query

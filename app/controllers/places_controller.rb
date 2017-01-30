@@ -9,7 +9,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     @place.category_id = params[:category][:category_id]
-    
+
     respond_to do |format|
       if @place.save
         format.html { redirect_to places_url, notice: 'Sted er tilføjet!' }
@@ -39,6 +39,6 @@ class PlacesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def place_params
-    params.require(:place).permit(:title, :description, :user_id, :lat, :lng, category_attributes: [:id] )
+    params.require(:place).permit(:title, :description, :user_id, :lat, :lng, :category_id)
   end
 end
