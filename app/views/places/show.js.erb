@@ -1,0 +1,5 @@
+$(function(){
+  path = window.location.pathname + "?search=" + "<%= params[:search] %>";
+  geojsonLayer.clearLayers();
+  getMarkers();
+});
