@@ -1,11 +1,33 @@
 class PlacesController < ApplicationController
-  #before_action :set_image, only: [:show, :edit, :update, :destroy]
+  #before_action :place_params, only: [:show]#, :edit, :update, :destroy]
+
   def new
     @place = Place.new
   end
 
-  def create
+  def index
 
+    @place = Place.new
+
+    if params[:search]
+      @places = Place.search( params[:search] )
+    else
+      @places = Place.all
+    end
+
+
+    respond_to do |format|
+      format.html { }
+      format.js { }
+      format.json { render 'geojson' }
+    end
+  end
+
+  def show
+    @place = Place.find(params[:id])
+  end
+
+  def create
     @place = Place.new(place_params)
     @place.user = current_user
     @place.category_id = params[:category][:category_id]
@@ -20,21 +42,9 @@ class PlacesController < ApplicationController
     end
   end
 
-  def index
-    @place = Place.new
 
-    if params[:search]
-      @places = Place.search( params[:search] )
-    else
-      @places = Place.all
-    end
 
-    respond_to do |format|
-      format.html { }
-      format.js { }
-      format.json { render 'geojson' }
-    end
-  end
+
 
   private
   # Never trust parameters from the scary internet, only allow the white list through.

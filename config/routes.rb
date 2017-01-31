@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
-  resources :places
+  resources :places, path: :kort
   resources :categories
 
   get 'events/index'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'front_page/index'
 
-  get '/kort', to: 'places#index'
+  #get '/kort', to: 'places#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'front_page#index'

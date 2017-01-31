@@ -1,64 +1,47 @@
-var markers, locationMarker, popup, placeMarker, markerIcon;
-var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-};
-var geojsonMarkerOptions1 = {
-    radius: 8,
-    fillColor: "#ff2323",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-};
-
-
-
+var markers, markerIcon,
+    popup, placeMarker,
+    locationIcon, locationMarker,
+    geojsonLayer, coords;
 
 var path = window.location.pathname;
 
 $(function(){
 
-  if ( $("#pagewrap").hasClass("places") )  {
+  if ( $("#map")){
     // Remember to include either the Leaflet 0.7.3 or the Leaflet 1.0.0-beta1 library
     markerIcon = L.icon({
-      iconUrl: "<%= asset_path 'marker-icon.png' %>",
-      iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>",
-      shadowUrl: "<%= asset_path 'marker-shadow.png' %>"
-    });
+                  iconUrl: "<%= asset_path 'marker-icon.png' %>",
+                  iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>",
+                  iconSize: [14, 25],
+                  iconAnchor: [5, 0],
+                  shadowUrl: "<%= asset_path 'marker-shadow.png' %>",
+                  shadowSize: [14, 25],
+                  shadowAnchor: [0, 0],
+                  shadowRetinaUrl: "<%= asset_path 'marker-shadow.png' %>"
+                });
+
     getMarkers();
     initMap();
-    map.locate({
-      watch: false
-    });
-  }
+
+  } else { }
 });
 
 function onEachFeature(feature, layer) {
-
   popupOptions = {offset: [13, 12]};
-  // does this feature have a property named popupContent?
-  //console.log(feature.geometry.style = myStyle1);
+
   if (feature.properties && feature.properties.popupContent) {
-    popup = L.popup({ autopan: false })
+    popup = L.popup()
         .setContent(feature.properties.popupContent);
     layer.bindPopup(popup, popupOptions);
   }
 }
 
 function getMarkers() {
-  var test = true;
-
   markers = $.getJSON( path ).done( function (response) {
 
       geojsonLayer = L.geoJson(response, {
         pointToLayer: function (feature, latlng) {
                         placeMarker = L.marker(latlng, {icon: markerIcon});
-
                         return placeMarker;
                       },
         onEachFeature: onEachFeature
@@ -67,24 +50,28 @@ function getMarkers() {
     });
 }
 
+
+
 function setCoords(lat, lng){
   $("input#place_lat").val(lat);
   $("input#place_lng").val(lng);
 }
 
+
+
 function addLocationMarker(){
 
-  var locationIcon = L.icon({
-        iconUrl: '<%= image_path('marker-icon.png') %>',
-        iconRetinaUrl: '<%= image_path('marker-shadow@2x.png') %>',
-        iconSize: [25, 41],
-        iconAnchor: [22, 94],
-        popupAnchor: [-9, -96],
-        shadowUrl: '<%= image_path('marker-shadow.png') %>',
-        shadowRetinaUrl: '<%= image_path('marker-shadow@2x.png') %>',
-        shadowSize: [41, 41],
-        shadowAnchor: [22, 94]
-    });
+  locationIcon = L.icon({
+                      iconUrl: "<%= image_path('marker-icon.png') %>",
+                      iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>",
+                      iconSize: [25, 41],
+                      iconAnchor: [0, 0],
+                      popupAnchor: [5, -96],
+                      shadowUrl: "<%= asset_path 'marker-shadow.png' %>",
+                      shadowRetinaUrl: "<%= asset_path 'marker-shadow.png' %>",
+                      shadowSize: [41, 41],
+                      shadowAnchor: [0, 0]
+                     });
   var center = map.getCenter();
 
   locationMarker = L.marker( [center.lat, center.lng], {
@@ -93,19 +80,21 @@ function addLocationMarker(){
   }).addTo(map);
   setCoords(locationMarker.getLatLng().lat, locationMarker.getLatLng().lng);
 
-
+  //Drag end
   locationMarker.on("dragend", function(){
     var coords = this.getLatLng();
     setCoords(coords.lat, coords.lng);
   });
-
 }
 
 function initMap() {
+  console.log("hertil når vi");
   map.options.maxZoom = 10;
   map.options.minZoom = 4;
-  map.options.zoomAnimation = false;
+  //map.options.zoomAnimation = false;
 }
+
+
 
 function closeDialouge() {
   $("#new_place").remove();

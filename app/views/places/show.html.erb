@@ -1,0 +1,14 @@
+<script>
+$(function(){
+});
+</script>
+<%= map(:container_id => "map",
+    :center => {
+      :latlng => [@place.lat, @place.lng],
+      :zoom => 16
+    },
+    :markers => [{
+      :latlng => [@place.lat, @place.lng],
+      :popup => @place.title
+     }]
+  ) %>
