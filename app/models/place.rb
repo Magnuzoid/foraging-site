@@ -4,7 +4,7 @@ class Place < ApplicationRecord
   validates :lng, longitude: true, presence: true
   belongs_to :user
   belongs_to :category, optional: true
-
+  geocoded_by :address, :latitude  => :lat, :longitude => :lng # ActiveRecord
   #accepts_nested_attributes_for :category
 
   def self.search(query)

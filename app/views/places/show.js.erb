@@ -1,5 +1,6 @@
 $(function(){
-  path = window.location.pathname + "?search=" + "<%= params[:search] %>";
-  geojsonLayer.clearLayers();
-  getMarkers();
+  console.log(this);
+  
+
+  map.setView([<%= @place.lat %>, <%= @place.lng %>], 10);
 });

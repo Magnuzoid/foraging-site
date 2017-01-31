@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
           "name": "<%= place.title %>",
-          "popupContent": "<strong><%= place.title %></strong><br /><%= place.description %><br /><a href='<%= place_path(place) %>' title='Gå til sted'>Vis sted</a>"
+          "popupContent": "<strong><%= place.title %></strong><br /><%= place.description %><br /><a href='<%= place_path(place) %>' title='Zoom til sted' data-remote='true'>Zoom ind</a>&nbsp;|&nbsp;<a href='<%= place_path(place) %>' title='Mere info'>mere info</a>"
       },
       "geometry": {
           "type": "Point",
@@ -15,7 +15,27 @@
   }<%= index < @places.count - 1 ? "," : "" %>
   <% end %>]
 <% else %>
-  [{
+  [
+  <% if @nearbys.blank? %>
+    <% #no nearbys %>
+  <% else %>
+    <% @nearbys.each_with_index do |nearby| %>
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "<%= nearby.title %>",
+            "popupContent": "<strong><%= nearby.title %></strong><br /><%= nearby.description %>"
+        },
+        "geometry": {
+            "type": "Point",
+            "style": "myStyle",
+            "coordinates": [<%= nearby.lng %>, <%= nearby.lat %>]
+        }
+    },
+    <% end %>
+  <% end %>
+
+  {
       "type": "Feature",
       "properties": {
           "name": "<%= @place.title %>",

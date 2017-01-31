@@ -25,10 +25,12 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @nearbys = @place.nearbys(1000)
+    #byebug
     respond_to do |format|
       format.html { }
       format.js { }
-      format.json { render 'geojson'}
+      format.json { render 'geojson' }
     end
   end
 

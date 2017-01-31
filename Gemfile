@@ -18,6 +18,7 @@ gem 'devise'
 gem 'leaflet-rails'
 # validation for lat/lon
 gem 'missing_validators', '~> 2.3'
+gem 'geocoder'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

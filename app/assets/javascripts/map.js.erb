@@ -9,16 +9,7 @@ $(function(){
 
   if ( $("#map")){
 
-    markerIcon = L.icon({
-                  iconUrl: "<%= asset_path 'marker-icon.png' %>",
-                  iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>",
-                  iconSize: [14, 25],
-                  iconAnchor: [5, 0],
-                  shadowUrl: "<%= asset_path 'marker-shadow.png' %>",
-                  shadowSize: [14, 25],
-                  shadowAnchor: [0, 0],
-                  shadowRetinaUrl: "<%= asset_path 'marker-shadow.png' %>"
-                });
+    
 
 
     getMarkers();
