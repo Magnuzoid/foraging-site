@@ -3,6 +3,8 @@
       :latlng => [50.5, 30.5],
       :zoom => 16
     }) %>
-<div id="user-actions" class="flex">
-  <%= link_to "New place", new_place_path, id: "newplace", remote: true  %>
-</div>
+    <% if current_user %>
+      <div id="user-actions" class="flex">
+        <%= link_to "New place", new_place_path, id: "newplace", remote: true  %>
+      </div>
+    <% end %>
