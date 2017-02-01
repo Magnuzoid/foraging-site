@@ -1,0 +1,24 @@
+@mixin center($size) {
+  left: 50%;
+   margin-left: -($size / 2);
+   margin-top: -($size / 2);
+   position: absolute;
+   top: 50%;
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

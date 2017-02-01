@@ -25,3 +25,9 @@ var markerIcon = L.icon({
               shadowRetinaUrl: "<%= asset_path 'marker-shadow.png' %>"
             });
 L.Marker.prototype.options.icon = markerIcon
+
+function showUserNav() {
+  $(function(){
+    $("#user-menu").toggleClass("hide");
+  });
+}

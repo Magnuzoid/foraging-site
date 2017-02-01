@@ -1,0 +1,30 @@
+.hero {
+  text-align: center;
+  display: block;
+  &.primary {
+    background-color: $color-primary;
+    color: $color-white;
+    .tabs {
+      ul li {
+        &.active a { color: rgba($color-white, 1); }
+      }
+      a {
+        color: rgba($color-white, 0.6);
+        &:hover { color: $color-white; }
+      }
+    }
+  }
+
+  .hero-content {
+    padding: 120px 0;
+    .title {
+      margin-bottom: 5px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .subtitle {
+      opacity: 0.7;
+      margin: 0;
+    }
+  }
+}

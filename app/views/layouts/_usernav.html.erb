@@ -1,13 +1,35 @@
-<!-- User Nav -->
-<nav id="usernav">
-  <li>Hey!&nbsp;</li>
-  <li>
-    <% if user_signed_in? %>
-      <%= current_user.username %>
+<section class="">
+  <div class="rel">
+    <div id="navbar" class="row navbar rel">
+      <div class="col">
+        <div class="tabs no-border">
+          <ul class="flex column">
+            <li class="active "><a href="#">Home</a></li>
+            <li class=" "><%= link_to "Places", places_path %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col m8">
+        <%= render 'layouts/search' %>
+      </div>
+      <% if user_signed_in? %>
+      <div class="col rel">
+        <ul class="container">
+          <li class="left" ><a href="#" onClick="showUserNav()"><%= "#{current_user.username}" %></a></li>
+        </ul>
+        <div id="user-menu" class="row abs hide">
+          <ul class="container">
+            <li class=""><%= link_to "Edit profile", edit_user_registration_path, title: "Go to profile" %></li>
+            <li class=" "><%= link_to "Show profile", current_user %></li>
+            <li class=""><%= link_to "link3", "#" %></li>
+            <li class="" ><%= link_to('Log ud', destroy_user_session_path, title: 'Logout', :method => :delete, class: "button red right") %></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
     <% end %>
-  </li>
-  <li>&nbsp;|&nbsp;</li>
-  <li><%= link_to "Min konto", edit_user_registration_path, title: 'Gå til din konto'%></li>
-  <li><%= link_to('Log ud', destroy_user_session_path, title: 'Logout', :method => :delete) %></li>
-</nav>
-<!-- /User Nav -->
+  </div>
+</section>

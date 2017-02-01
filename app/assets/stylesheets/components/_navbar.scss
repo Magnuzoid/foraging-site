@@ -1,0 +1,22 @@
+.navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  .nav-item {
+    flex: 1;
+  }
+  .heading {
+    font-size: 11px;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .unit {
+    margin: 0;
+    color: $color-black;
+    font-size: 28px;
+    line-height: 1;
+  }
+}

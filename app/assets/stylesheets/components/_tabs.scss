@@ -1,0 +1,54 @@
+.tabs {
+  line-height: 24px;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  ul {
+    display: flex;
+    border-bottom: 1px solid $color-grey;
+    li {
+      display: block;
+      vertical-align: top;
+      &.active {
+        a {
+          color: $color-primary;
+          border-bottom-color: $color-primary;
+        }
+      }
+      a {
+        padding: 5px 10px;
+        border-bottom: 1px solid $color-grey;
+        display: block;
+        margin-bottom: -1px;
+        color: $color-grey;
+        vertical-align: top;
+        i {
+          margin-right: 5px;
+        }
+        &:hover {
+          color: $color-black;
+          border-bottom-color: $color-black;
+        }
+      }
+    }
+  }
+
+  &.no-border {
+    ul { border: none; }
+    a { border: none; }
+  }
+
+  &.center {
+    ul {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &.right {
+    ul {
+      justify-content: flex-end;
+    }
+  }
+}

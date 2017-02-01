@@ -1,0 +1,90 @@
+/*** Frameworks ***/
+@import 'bourbon/bourbon';
+@import 'font-awesome/font-awesome';
+
+/*** Framr ***/
+@import 'global/variables';
+@import 'global/fonts';
+@import 'global/global';
+@import 'global/prefix';
+@import 'global/grid';
+@import 'global/typography';
+@import 'global/icons';
+@import 'global/helpers';
+
+/*** Mixins ***/
+@import 'mixins/mixins';
+
+/*** Elements ***/
+@import 'elements/loader';
+@import 'elements/buttons';
+
+/*** components ***/
+@import 'components/navbar';
+@import 'components/tabs';
+@import 'components/hero';
+
+/*** CLASSES ***/
+.abs { position: absolute; }
+.rel { position: relative; }
+
+/*** ID's ***/
+
+#pagewrap {
+  &.places {
+    padding-top: 100px; /*142px*/
+  }
+}
+
+#navbar {
+  margin-bottom: 0 ;
+}
+
+#search {
+  margin-top: 15px;
+}
+
+#user-menu {
+  background-color: white;
+  top: 44px;
+  right: 0;
+  width: 200px;
+  z-index: 1000;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+  ul li {
+    border-top: 1px #ccc solid;
+    padding: 8px 0;
+    &:last-child {
+      a{ margin: 0 0 8px; }
+    }
+  }
+}
+
+#map {
+  height: calc(100vh - 65px);
+  //height: 350px;
+  z-index: 1;
+}
+
+#sign_up {
+  max-width: 600px;
+  text-align: center;
+  padding: 1em 0;
+  margin-bottom: 2em;
+}
+
+#user-actions {
+  position: fixed;
+  right: 0;
+  top: 200px;
+  z-index: 100;
+
+  a {
+    padding: 10px 5px;
+  }
+}
+
+/*** Pages ***/
+
+/*** Layout ***/

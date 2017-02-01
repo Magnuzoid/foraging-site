@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="">
   <head>
-    <title>ByhoestRor</title>
-    <%= csrf_meta_tags %>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Foraging Service</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+      <!-- Place favicon.ico in the root directory -->
+      <%= csrf_meta_tags %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+      <%= javascript_include_tag 'modernizr-2.8.3.min.js', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-  <body class="">
-    <%= render 'layouts/header' %>
-    <div id="pagewrap" class="<%= controller_name %>">
+    <!-- Add your site or application content here -->
+
+
+    <%= render 'layouts/usernav' %>
+    <% if controller_name == "places" %>
       <%= yield %>
-      <% if controller_name == "places" %>
-      <% else %>
-        <%= render 'layouts/footer' %>
-      <% end %>
-
-    </div> <!-- /pagewrap -->
+    <% else %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <% end %>
   </body>
 </html>

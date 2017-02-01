@@ -1,0 +1,17 @@
+.loader {
+  animation: spin-around 500ms infinite linear;
+  border: 2px solid $color-white;
+  border-radius: 100%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 16px;
+  position: relative;
+  width: 16px;
+}
+
+@keyframes spin-around {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}

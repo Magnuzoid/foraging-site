@@ -1,0 +1,109 @@
+.button {
+  cursor: pointer;
+  display: inline-block;
+
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: middle;
+
+  padding: $button-margin-vertical $button-margin-horizontal;
+
+  background-color: lighten($color-grey, 20%);
+  color: $color-white;
+
+  transition: all $global-animation-duration ease-in-out;
+
+  border-radius: $global-border-radius;
+  @include user-select(none);
+  position: relative;
+
+  i {
+    margin-right: $button-icon-spacer;
+    &.icon-right {
+      margin-left: $button-icon-spacer;
+      margin-right: 0;
+    }
+  }
+
+  &.blue { background-color: $color-blue; }
+  &.red { background-color: $color-red; }
+  &.purple { background-color: $color-purple; }
+  &.pink { background-color: $color-pink; }
+  &.green { background-color: $color-green; }
+  &.teal { background-color: $color-teal; }
+  &.violet { background-color: $color-violet; }
+  &.yellow { background-color: $color-yellow; }
+  &.orange { background-color: $color-orange; }
+
+  &.blue:hover { background-color: darken($color-blue, 5%); }
+  &.red:hover { background-color: darken($color-red, 5%); }
+  &.purple:hover { background-color: darken($color-purple, 5%); }
+  &.pink:hover { background-color: darken($color-pink, 5%); }
+  &.green:hover { background-color: darken($color-green, 5%); }
+  &.teal:hover { background-color: darken($color-teal, 5%); }
+  &.violet:hover { background-color: darken($color-violet, 5%); }
+  &.yellow:hover { background-color: darken($color-yellow, 5%); }
+  &.orange:hover { background-color: darken($color-orange, 5%); }
+
+  &.blue:active { background-color: darken($color-blue, 10%); }
+  &.red:active { background-color: darken($color-red, 10%); }
+  &.purple:active { background-color: darken($color-purple, 10%); }
+  &.pink:active { background-color: darken($color-pink, 10%); }
+  &.green:active { background-color: darken($color-green, 10%); }
+  &.teal:active { background-color: darken($color-teal, 10%); }
+  &.violet:active { background-color: darken($color-violet, 10%); }
+  &.yellow:active { background-color: darken($color-yellow, 10%); }
+  &.orange:active { background-color: darken($color-orange, 10%); }
+
+  &:active {
+    transition: all 0s ease-in-out;
+    @include transform(scale(0.98));
+  }
+
+  &.inverted {
+    background-color: transparent;
+    border: 2px solid;
+    border-color: lighten($color-grey, 20%);
+    padding: calc(#{$button-margin-vertical} - 2px) calc(#{$button-margin-horizontal} - 2px);
+    color: lighten($color-grey, 20%);
+    &:hover { color: $color-white; }
+  }
+
+  &.inverted.blue {  border-color: $color-blue; color: $color-blue;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.red { border-color: $color-red; color: $color-red;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.purple { border-color: $color-purple; color: $color-purple;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.pink { border-color: $color-pink; color: $color-pink;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.green { border-color: $color-green; color: $color-green;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.teal { border-color: $color-teal; color: $color-teal;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.violet { border-color: $color-violet; color: $color-violet;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.yellow { border-color: $color-yellow; color: $color-yellow;
+    &:hover { color: $color-white; }
+  }
+  &.inverted.orange { border-color: $color-orange; color: $color-orange;
+    &:hover { color: $color-white; }
+  }
+
+  &.loading {
+    color: transparent;
+    &:after {
+      @extend .loader;
+      @include center(16px);
+      text-align: center;
+    }
+  }
+}

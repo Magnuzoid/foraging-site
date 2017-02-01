@@ -1,24 +1,20 @@
 <header>
   <div class="inner">
     <!-- Byhoest logo -->
-    <div id="logo" class="fleft">
-      <%= link_to "Byhøst", root_path, title: "Byhøst.dk" %>
-    </div>
+
     <!-- /Byhoest logo -->
     <div class="fright">
 
       <!-- Page Navigation -->
       <nav id="pagenav" class="fleft">
-        <li><a href="#">Opskrifter</a></li>
-        <li><%= link_to "Almanak", almanak_path %></li>
+
         <li><%= link_to "Kort", places_path %></li>
-        <li><a href="#">Byhøstguide</a></li>
-        <li><%= link_to "Events", events_path %></li>
-        <li><a href="#">Forum</a></li>
-        <li><a href="#">Om Byhøst</a></li>
+
+
+
+
       </nav>
       <!-- /Page Navigation -->
-
       <%= render 'layouts/search' %>
       <% unless user_signed_in? %>
         <div id="login" class="fleft">

@@ -9,9 +9,6 @@ $(function(){
 
   if ( $("#map")){
 
-    
-
-
     getMarkers();
     initMap();
 
@@ -19,7 +16,7 @@ $(function(){
 });
 
 function onEachFeature(feature, layer) {
-  popupOptions = {offset: [13, 12]};
+  popupOptions = {offset: [2, 12]};
 
   if (feature.properties && feature.properties.popupContent) {
     popup = L.popup()
