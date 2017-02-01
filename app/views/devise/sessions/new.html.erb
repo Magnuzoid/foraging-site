@@ -1,20 +1,30 @@
-<div class="padding-sides bg-sand">
-  <div id="sign_up" class="center flex column">
-    <h2>Log in</h2>
+<section class="hero primary">
+  <div class="hero-content">
+    <div class="container">
+      <p class="title">Title</p>
+      <p class="subtitle">Subtitle</p>
+    </div>
+  </div>
+</section>
+<div class="container center">
+  <div id="sign_up">
+    <h4>Log in</h4>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field full ta-left">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "full" %>
-      </div>
+      <div class="col">
+        <div class="field full ta-left">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "full" %>
+        </div>
 
-      <div class="field full ta-left">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "full" %>
+        <div class="row">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "full" %>
+        </div>
       </div>
 
       <% if devise_mapping.rememberable? -%>
-        <div class="field ta-left">
+        <div class="row">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
@@ -22,7 +32,7 @@
 
       <div class="actions flex row">
         <%= render "devise/shared/links" %>
-        <%= f.submit "Log ind", class: "btn" %>
+        <%= f.submit "Log ind", class: "button blue" %>
       </div>
 
     <% end %>
