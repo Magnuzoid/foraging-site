@@ -4,15 +4,15 @@
       <div class="col">
         <div class="tabs no-border">
           <ul class="flex column">
-            <li class="active "><a href="#">Home</a></li>
-            <li class=" "><%= link_to "Places", places_path %></li>
+            <li class="<%= cp(root_path) %>"><%= link_to "home", root_path %></li>
+            <li class="<%= cp(places_path) %>"><%= link_to "Places", places_path %></li>
           </ul>
         </div>
       </div>
       <div class="col m8">
         <%= render 'layouts/search' %>
       </div>
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class="col rel">
         <ul class="container">
           <li class="left" ><a href="#" onClick="showUserNav()"><%= "#{current_user.username}" %></a></li>
@@ -26,10 +26,12 @@
           </ul>
         </div>
       </div>
-
     </div>
-
-
+    <% else %>
+      <div class="col">
+        <%= link_to "Join", new_user_registration_path, class: "button green" %>
+        <%= link_to "Login", new_user_session_path, class: "button" %>
+      </div>
     <% end %>
   </div>
 </section>

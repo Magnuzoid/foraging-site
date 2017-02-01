@@ -26,14 +26,7 @@
 
     <!-- Add your site or application content here -->
 
-
     <%= render 'layouts/usernav' %>
-    <% if controller_name == "places" %>
-      <%= yield %>
-    <% else %>
-    <div class="container">
-      <%= yield %>
-    </div>
-    <% end %>
+    <%= yield %>
   </body>
 </html>

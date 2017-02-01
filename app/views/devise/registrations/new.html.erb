@@ -1,37 +1,52 @@
-<div class="padding-sides bg-sand">
-  <div id="sign_up" class="center flex column">
+  <section class="hero primary">
 
-    <h2>Tilmeld dig</h2>
+    <div class="hero-content">
+      <div class="container">
+        <p class="title">Title</p>
+        <p class="subtitle">Subtitle</p>
+      </div>
+    </div>
+
+  </section>
+  <div id="sign_up" class=" container">
+    <h4 class="center-align">Join our growing foraging community</h4>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <div class="row">
+        <%= devise_error_messages! %>
+    </div>
+    <div class="row">
+      <div class="col l2 offset-l4">
+        <div class="">
+          <%= f.label :username, "Brugernavn" %><br />
+          <%= f.text_field :username, autofocus: true %>
+        </div>
+        <div class="">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: "full" %>
+        </div>
 
-      <div class="field ta-left">
-        <%= f.label :username, "Brugernavn" %><br />
-        <%= f.text_field :username, autofocus: true, class: "full" %>
       </div>
-
-      <div class="field ta-left">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, class: "full" %>
+      <div class="col l6">
+        <div>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <div>
+          <% if @minimum_password_length %>
+            <em class="col">(Password needs to be <%= @minimum_password_length %> characters long at least)</em>
+          <% end %>
+        </div>
       </div>
-
-      <div class="field ta-left">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: "full" %>
-        <% if @minimum_password_length %>
-        <em>(Koden skal minimum være <%= @minimum_password_length %> karakterer lang)</em>
-        <% end %>
-      </div>
-
-      <div class="field ta-left">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "full" %>
-      </div>
-
-      <div class="actions flex row full">
+      <div class="col offset-l5 l2">
+        <br />
         <%= render "devise/shared/links" %>
-        <%= f.submit "Registrer", class: "btn" %>
+        <%= f.submit "Registrer", class: "button blue" %>
       </div>
+    </div>
+
     <% end %>
-  </div><!-- inner group three-col -->
-</div>
+  </div>
