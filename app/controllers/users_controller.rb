@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @places = @user.places
+    respond_to do |format|
+      format.html {}
+      format.json { render 'shared/geojson'}
+    end
   end
 end
 

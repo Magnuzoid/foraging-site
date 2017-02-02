@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :pages
   resources :users, :only => [:show]
 
-  root 'pages#index'
+  root 'places#index'
 
   #get 'users/:id' => 'users#show'
 

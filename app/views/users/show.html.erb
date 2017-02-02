@@ -1,10 +1,24 @@
-<h4><%= @user.username %></h4>
-<ul>
-  <% unless @user.places.blank? %>
-    <h5>Places</h5>
-    <% @user.places.each do |place| %>
-      <li><%= place.title %></li>
-    <% end %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <h4><%= @user.username %></h4>
+  </div>
+  <div class="row">
+    <div class="col l6">
+      <%= map(:container_id => "map",
+          :center => {
+            :latlng => [50.5, 30.5],
+            :zoom => 16
+          }) %>
+    </div>
+    <div class="col l6"><ul>
+      <% unless @user.places.blank? %>
+        <h6>Places (<%= @user.places.count %>)</h6>
 
-<ul>
+        <% @user.places.each do |place| %>
+          <li><%= place.title %><%= place.category.presence ? link_to("#{place.category.name}", category_path(place.category.id)) : '' %></li>
+        <% end %>
+      <% end %>
+    <ul></div>
+  </div>
+
+</div>

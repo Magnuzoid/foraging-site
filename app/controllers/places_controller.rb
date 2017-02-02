@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html { }
       format.js { }
-      format.json { render 'geojson' }
+      format.json { render 'shared/geojson' }
     end
   end
 
@@ -30,7 +30,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html { }
       format.js { }
-      format.json { render 'geojson' }
+      format.json { render 'shared/geojson' }
     end
   end
 
@@ -56,6 +56,6 @@ class PlacesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def place_params
-    params.require(:place).permit(:title, :description, :user_id, :lat, :lng, :category_id)
+    params.require(:place).permit(:title, :description, :user_id, :lat, :lng, :category_id, :name)
   end
 end

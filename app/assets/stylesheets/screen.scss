@@ -19,6 +19,14 @@
 @import 'elements/loader';
 @import 'elements/buttons';
 
+input {
+  &[type=text],
+  &[type=email],
+  &[type=password] {
+    flex: 1;
+  }
+}
+
 /*** components ***/
 @import 'components/navbar';
 @import 'components/tabs';
@@ -27,6 +35,7 @@
 /*** CLASSES ***/
 .abs { position: absolute; }
 .rel { position: relative; }
+.flex { display: flex; }
 
 /*** ID's ***/
 
@@ -41,7 +50,10 @@
 }
 
 #search {
-  margin-top: 15px;
+  border: 1px solid #ccc;
+  line-height: 2.5em;
+  margin-bottom: 0;
+  padding: 4px 8px;
 }
 
 #user-menu {
@@ -72,6 +84,7 @@
 }
 
 #user-actions {
+  background-color: white;
   position: fixed;
   right: 0;
   top: 200px;

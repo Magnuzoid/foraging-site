@@ -1,6 +1,6 @@
 <!-- Search Box -->
 <div id="searchbox" class="" >
-  <%= form_tag(places_path, method: :get, :id => "lookup-form", class: "row", remote: true) do %>
+  <%= form_tag(places_path, method: :get, :id => "lookup-form", class: "", remote: true) do %>
     <%= text_field_tag(:search, params[:search], placeholder: "søg...", class: "col m12", type: "search") %>
     <%= submit_tag("Search", :name => nil, type: "hidden", class: "button col m1") %>
   <% end %>

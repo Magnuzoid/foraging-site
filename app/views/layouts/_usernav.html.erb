@@ -5,7 +5,6 @@
         <div class="tabs no-border">
           <ul class="flex column">
             <li class="<%= cp(root_path) %>"><%= link_to( raw("<i class='fa fa-pagelines'></i> Foraging site"), root_path ) %></li>
-            <li class="<%= cp(places_path) %>"><%= link_to "Places", places_path %></li>
           </ul>
         </div>
       </div>
@@ -14,21 +13,18 @@
       </div>
     <% if user_signed_in? %>
       <div class="col rel">
-        <ul class="container">
-          <li class="left" ><a href="#" onClick="showUserNav()"><%= "#{current_user.username}" %></a></li>
-        </ul>
+        <a id="user-link" href="#" onClick="showUserNav()"><i class="fa fa-user fa"  aria-hidden="true"></i>&nbsp;<%= "#{current_user.username}" %></a>
         <div id="user-menu" class="row abs hide">
           <ul class="container">
             <li class=""><%= link_to "Edit profile", edit_user_registration_path, title: "Go to profile" %></li>
             <li class=" "><%= link_to "Show profile", current_user %></li>
-            <li class=""><%= link_to "link3", "#" %></li>
             <li class="" ><%= link_to('Log ud', destroy_user_session_path, title: 'Logout', :method => :delete, class: "button red right") %></li>
           </ul>
         </div>
       </div>
     </div>
     <% else %>
-      <div class="col">
+      <div class="col l2">
         <%= link_to "Join", new_user_registration_path, class: "button green" %>
         <%= link_to "Login", new_user_session_path, class: "button" %>
       </div>

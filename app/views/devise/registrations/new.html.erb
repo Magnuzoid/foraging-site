@@ -13,34 +13,37 @@
         <%= devise_error_messages! %>
     </div>
     <div class="row">
-      <div class="col l2 offset-l4">
-        <div class="">
-          <%= f.label :username, "Brugernavn" %><br />
+      <div class="col l4 offset-l2 s12">
+        <div class="flex">
+          <%= f.label :username, "Brugernavn" %>
           <%= f.text_field :username, autofocus: true %>
         </div>
-        <div class="">
-          <%= f.label :email %><br />
+        <div class="flex">
+          <%= f.label :email %>
           <%= f.email_field :email, class: "full" %>
         </div>
 
       </div>
-      <div class="col l6">
-        <div>
-          <%= f.label :password %><br />
+      <div class="col l4 s12">
+        <div class="flex">
+          <%= f.label :password %>
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
-        <div>
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-        <div>
+        <div class="flex center-text">
           <% if @minimum_password_length %>
-            <em class="col">(Password needs to be <%= @minimum_password_length %> characters long at least)</em>
+            <small><em class="">(Password needs to be <%= @minimum_password_length %> characters long at least)</em></small>
           <% end %>
         </div>
+        <div class="flex">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+
       </div>
-      <div class="col offset-l5 l2">
-        <br />
+      <br /><br />
+      <div class="col navbar offset-l5 l2 offset-s3 s5">
+
         <%= render "devise/shared/links" %>
         <%= f.submit "Registrer", class: "button blue" %>
       </div>

@@ -7,11 +7,10 @@ var path = window.location.pathname;
 
 $(function(){
 
-  if ( $("#map")){
+  if ( $("#map").length){
 
     getMarkers();
     initMap();
-
   } else { }
 });
 
@@ -35,7 +34,10 @@ function getMarkers() {
                       },
         onEachFeature: onEachFeature
       }).addTo(map);
-      map.fitBounds(geojsonLayer.getBounds());
+      if (geojsonLayer.getBounds().isValid()){
+        map.fitBounds(geojsonLayer.getBounds());
+      }
+
     });
 }
 
@@ -99,7 +101,6 @@ function autoSearch() {
     //e.preventDefault();
     var char_len = searchField.val().length;
     if (char_len > 2 || char_len == 0){
-      console.log(char_len);
       searchForm.submit();
     }
   });
