@@ -16,6 +16,7 @@ gem 'rake', '~>12.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'leaflet-rails'
+gem 'will_paginate'
 # validation for lat/lon
 gem 'missing_validators', '~> 2.3'
 gem 'geocoder'
